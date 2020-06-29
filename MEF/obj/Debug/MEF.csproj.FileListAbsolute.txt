@@ -21,3 +21,11 @@ C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Comp
 C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto\C#\MEF\obj\Debug\MEF.csprojResolveAssemblyReference.cache
 C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto\C#\MEF\obj\Debug\MEF.Form1.resources
 C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto\C#\MEF\obj\Debug\MEF.csproj.GenerateResource.Cache
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\bin\Debug\MEF.exe.config
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.exe
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.pdb
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\bin\Debug\MEF.exe
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\bin\Debug\MEF.pdb
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csprojResolveAssemblyReference.cache
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Form1.resources
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csproj.GenerateResource.Cache

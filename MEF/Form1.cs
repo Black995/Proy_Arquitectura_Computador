@@ -21,9 +21,13 @@ namespace MEF
 
         // Creamos un objeto para la maquina de estados finitos
         private CMaquina maquina = new CMaquina();
+        private CMaquina maquina2 = new CMaquina();
+
 
         // Objetos necesarios
         public S_objeto[] ListaObjetos = new S_objeto[10];
+        public S_objeto[] ListaObjetos2 = new S_objeto[10];
+
         public S_objeto MiBateria;
 
         public Form1()
@@ -48,9 +52,12 @@ namespace MEF
                 // Colocamos las coordenadas
                 ListaObjetos[n].x = random.Next(0, 639);
                 ListaObjetos[n].y = random.Next(0, 479);
+                ListaObjetos2[n].x = random.Next(0, 639);
+                ListaObjetos2[n].y = random.Next(0, 479);
 
                 // Lo indicamos activo
                 ListaObjetos[n].activo = true;
+                ListaObjetos2[n].activo = true;
             }
 
             // Colocamos la bateria
@@ -59,17 +66,17 @@ namespace MEF
             MiBateria.activo = true;
 
             maquina.Inicializa(ref ListaObjetos, MiBateria);
-
+            maquina2.Inicializa(ref ListaObjetos2, MiBateria);
 
         }
 
-        
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
                 if (components != null)
-                {
+                {   
                     components.Dispose();
                 }
             }
@@ -145,7 +152,8 @@ namespace MEF
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
-            this.Text = "Maquina de estados finitos";
+            //this.Text = "Maquina de estados finitos";
+            this.Text = "Marico el que lo lea";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.ResumeLayout(false);
 
@@ -184,6 +192,8 @@ namespace MEF
 
             // Actualizamos a la maquina
             maquina.Control();
+            maquina2.Control();
+
 
             // Mandamos a redibujar la pantalla
             this.Invalidate();
@@ -193,7 +203,13 @@ namespace MEF
         {
             // Creamos la fuente y la brocha para el texto
             Font fuente = new Font("Arial", 16);
+            Font fuente2 = new Font("Arial", 24);
+
             SolidBrush brocha = new SolidBrush(Color.Black);
+            SolidBrush brochaVerde = new SolidBrush(Color.Green);
+            SolidBrush brochaRoja = new SolidBrush(Color.Red);
+
+
 
             // Dibujamos el robot
             if (maquina.EstadoM == (int)CMaquina.estados.MUERTO)
@@ -201,17 +217,37 @@ namespace MEF
             else
                 e.Graphics.DrawRectangle(Pens.Green, maquina.CoordX - 4, maquina.CoordY - 4, 20, 20);
 
+            if (maquina2.EstadoM == (int)CMaquina.estados.MUERTO)
+                e.Graphics.DrawRectangle(Pens.Black, maquina2.CoordX - 10, maquina2.CoordY - 10, 20, 20);
+            else
+                e.Graphics.DrawRectangle(Pens.Red, maquina2.CoordX -10, maquina2.CoordY - 10, 20, 20);
+
+
             // Dibujamos los objetos
             for (int n = 0; n < 10; n++)
                 if (ListaObjetos[n].activo == true)
                     e.Graphics.DrawRectangle(Pens.Indigo, ListaObjetos[n].x - 4, ListaObjetos[n].y - 4, 20, 20);
+            for (int n = 0; n < 10; n++)
+                if (ListaObjetos2[n].activo == true)
+                    e.Graphics.DrawRectangle(Pens.Blue, ListaObjetos2[n].x - 10, ListaObjetos2[n].y - 10, 20, 20);
 
             // Dibujamos la bateria
             e.Graphics.DrawRectangle(Pens.IndianRed, MiBateria.x - 4, MiBateria.y - 4, 20, 20);
 
             // Indicamos el estado en que se encuentra la maquina
-            e.Graphics.DrawString("Estado -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
+            e.Graphics.DrawString("Verde -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
+            e.Graphics.DrawString("Rojo  -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
 
+            if(maquina.EstadoM == 4)
+            {
+                timer1.Enabled = false;
+                e.Graphics.DrawString("GANÓ VERDE" , fuente2, brochaVerde, 250, 200);
+            }
+            if (maquina2.EstadoM == 4)
+            {
+                timer1.Enabled = false;
+                e.Graphics.DrawString("GANÓ ROJO" , fuente2, brochaRoja, 250, 200);
+            }
 
         }
     }

@@ -10,21 +10,20 @@ namespace MEF
 		public int x,y;		// Coordenadas del objeto
 	}
 
-
-	/// <summary>
-	/// Esta clase representa a nuestra maquina de estados finitos.
-	/// </summary>
-	public class CMaquina
+    /// <summary>
+    /// Esta clase representa a nuestra maquina de estados finitos.
+    /// </summary>
+    public class CMaquina
 	{
 		// Enumeracion de los diferentes estados
 		public enum  estados
 		{
+			ALEATORIO,
 			BUSQUEDA,
 			NBUSQUEDA,
 			IRBATERIA,
-			RECARGAR,
 			MUERTO,
-			ALEATORIO,
+			RECARGAR,
 			
 		};
 
@@ -70,6 +69,7 @@ namespace MEF
 		}
 
 		public void Inicializa(ref S_objeto [] Pobjetos, S_objeto Pbateria)
+
 		{
 			// Colocamos una copia de los objetos y la bateria
 			// para pode trabajar internamente con la informacion
@@ -108,9 +108,10 @@ namespace MEF
 
 					// Verificamos por transicion
 					if(indice==-1)	// Si ya no hay objetos, entonces aleatorio
-						Estado=(int)estados.ALEATORIO;
-					else
-						Estado=(int)estados.BUSQUEDA;
+                        Estado=(int)estados.IRBATERIA;
+                        //Estado=(int)estados.ALEATORIO;
+                    else
+                        Estado =(int)estados.BUSQUEDA;
 
 					break;
 					
@@ -120,7 +121,7 @@ namespace MEF
 
 					// Verificamos por transicion
 					if(x==bateria.x && y==bateria.y)				
-						Estado=(int)estados.RECARGAR;
+						Estado=(int)estados.MUERTO;
 
 					break;
 
