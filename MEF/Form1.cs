@@ -216,7 +216,7 @@ namespace MEF
             Image coin = Image.FromFile("coin.png");
             Image yellowGhost = Image.FromFile("mario.gif");
             Image redGhost = Image.FromFile("dragon.gif");
-            Image fresa = Image.FromFile("estrella.gif");
+            Image star = Image.FromFile("estrella.gif");
 
 
                 //Fatasma amarillo
@@ -243,21 +243,21 @@ namespace MEF
 
             // Dibujamos la bateria
             rect = new Rectangle(MiBateria.x - 4, MiBateria.y - 4, 30, 30);
-            e.Graphics.DrawImage(fresa, rect);
+            e.Graphics.DrawImage(star, rect);
 
             // Indicamos el estado en que se encuentra la maquina
-            e.Graphics.DrawString("Verde -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
-            e.Graphics.DrawString("Rojo  -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
+            e.Graphics.DrawString("MARIO -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
+            e.Graphics.DrawString("YOSHI  -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
 
             if(maquina.EstadoM == 4)
             {
                 timer1.Enabled = false;
-                e.Graphics.DrawString("GANÓ MARIO" , fuente2, brochaRoja, 250, 200);
+                e.Graphics.DrawString("GANÓ MARIO" , fuente2, brocha, 250, 200);
             }
             if (maquina2.EstadoM == 4)
             {
                 timer1.Enabled = false;
-                e.Graphics.DrawString("GANÓ YOSHI" , fuente2, brochaVerde, 250, 200);
+                e.Graphics.DrawString("GANÓ YOSHI" , fuente2, brocha, 250, 200);
             }
 
         }
