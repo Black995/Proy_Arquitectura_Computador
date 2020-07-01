@@ -214,24 +214,25 @@ namespace MEF
 
             Rectangle rect;
             Image coin = Image.FromFile("coin.png");
-            Image yellowGhost = Image.FromFile("mario.gif");
-            Image redGhost = Image.FromFile("dragon.gif");
+            Image mush = Image.FromFile("mushroom.png");
+            Image yoshi = Image.FromFile("yoshi.png");
+            Image mario = Image.FromFile("mario.png");
             Image star = Image.FromFile("estrella.gif");
 
 
-                //Fatasma amarillo
+                //Yoshi
                  rect = new Rectangle(maquina.CoordX - 4, maquina.CoordY - 4, 40, 40);
-                 e.Graphics.DrawImage(yellowGhost, rect);
-                //Fantasma rojo
+                 e.Graphics.DrawImage(yoshi, rect);
+                //Mario
                 rect = new Rectangle(maquina2.CoordX - 4, maquina2.CoordY - 4, 40, 40);
-                e.Graphics.DrawImage(redGhost, rect);
+                e.Graphics.DrawImage(mario, rect);
 
             // Dibujamos los objetos
             for (int n = 0; n < 10; n++)
                 if (ListaObjetos[n].activo == true)
                 {
                     rect = new Rectangle(ListaObjetos[n].x - 4, ListaObjetos[n].y - 4, 20, 20);
-                    e.Graphics.DrawImage(coin,rect);
+                    e.Graphics.DrawImage(mush,rect);
                 }
 
             for (int n = 0; n < 10; n++)
@@ -246,18 +247,18 @@ namespace MEF
             e.Graphics.DrawImage(star, rect);
 
             // Indicamos el estado en que se encuentra la maquina
-            e.Graphics.DrawString("MARIO -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
-            e.Graphics.DrawString("YOSHI  -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
+            e.Graphics.DrawString("YOSHI -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
+            e.Graphics.DrawString("MARIO -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
 
             if(maquina.EstadoM == 4)
             {
                 timer1.Enabled = false;
-                e.Graphics.DrawString("GANÓ MARIO" , fuente2, brocha, 250, 200);
+                e.Graphics.DrawString("GANÓ YOSHI" , fuente2, brocha, 250, 200);
             }
             if (maquina2.EstadoM == 4)
             {
                 timer1.Enabled = false;
-                e.Graphics.DrawString("GANÓ YOSHI" , fuente2, brocha, 250, 200);
+                e.Graphics.DrawString("GANÓ MARIO" , fuente2, brocha, 250, 200);
             }
 
         }

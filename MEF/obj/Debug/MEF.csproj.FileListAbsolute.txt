@@ -30,3 +30,4 @@ C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csprojResol
 C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Form1.resources
 C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csproj.GenerateResource.Cache
 C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Properties.Resources.resources
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto\C#\MEF\obj\Debug\MEF.Properties.Resources.resources
