@@ -29,3 +29,4 @@ C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\bin\Debug\MEF.pdb
 C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csprojResolveAssemblyReference.cache
 C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Form1.resources
 C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csproj.GenerateResource.Cache
+C:\Users\HOME\Desktop\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Properties.Resources.resources
