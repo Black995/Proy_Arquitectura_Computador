@@ -1,9 +1,7 @@
 using System;
 using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Data;
 
 namespace MEF
 {
@@ -22,14 +20,14 @@ namespace MEF
 
 
         // Creamos un objeto para la maquina de estados finitos
-        private CMaquina maquina = new CMaquina();
-        private CMaquina maquina2 = new CMaquina();
+        private CMaquina Mario = new CMaquina();
+        private CMaquina Luigi = new CMaquina();
         
 
         // Objetos necesarios
         public S_objeto[] ListaObjetos = new S_objeto[10];
         public S_objeto[] ListaObjetos2 = new S_objeto[10];
-        public S_objeto MiBateria;
+        public S_objeto Estrella;
         
         public Form1()
         {
@@ -61,13 +59,13 @@ namespace MEF
                 ListaObjetos2[n].activo = true;
             }
 
-            // Colocamos la bateria
-            MiBateria.x = random.Next(0, 639);
-            MiBateria.y = random.Next(0, 479);
-            MiBateria.activo = true;
+            // Colocamos la estrella
+            Estrella.x = random.Next(0, 639);
+            Estrella.y = random.Next(0, 479);
+            Estrella.activo = true;
 
-            maquina.Inicializa(ref ListaObjetos, MiBateria);
-            maquina2.Inicializa(ref ListaObjetos2, MiBateria);
+            Mario.Inicializa(ref ListaObjetos, Estrella);
+            Luigi.Inicializa(ref ListaObjetos2, Estrella);
 
         }
 
@@ -207,9 +205,9 @@ namespace MEF
             // Esta funcion es el handler del timer
             // Aqui tendremos la logica para actualizar nuestra maquina de estados
 
-            // Actualizamos a la maquina
-            maquina.Control();
-            maquina2.Control();
+            // Actualizamos a las maquinas
+            Mario.Control();
+            Luigi.Control();
 
 
             // Mandamos a redibujar la pantalla
@@ -234,45 +232,45 @@ namespace MEF
             Image star = Image.FromFile("estrella.gif");
 
 
-                //Luigi
-                 rect = new Rectangle(maquina.CoordX - 4, maquina.CoordY - 4, 40, 40);
-                 e.Graphics.DrawImage(luigi, rect);
-                //Mario
-                rect = new Rectangle(maquina2.CoordX - 4, maquina2.CoordY - 4, 40, 40);
+            //Mario
+                rect = new Rectangle(Mario.CoordX - 4, Mario.CoordY - 4, 40, 40);
                 e.Graphics.DrawImage(mario, rect);
+            //Luigi
+            rect = new Rectangle(Luigi.CoordX - 4, Luigi.CoordY - 4, 40, 40);
+            e.Graphics.DrawImage(luigi, rect);
 
             // Dibujamos los objetos
-            for (int n = 0; n < 10; n++)
+            for (int n = 1; n < 10; n++)
                 if (ListaObjetos[n].activo == true)
                 {
                     rect = new Rectangle(ListaObjetos[n].x - 4, ListaObjetos[n].y - 4, 20, 20);
-                    e.Graphics.DrawImage(mush,rect);
+                    e.Graphics.DrawImage(coin,rect);
                 }
 
-            for (int n = 0; n < 10; n++)
+            for (int n = 1; n < 10; n++)
                 if (ListaObjetos2[n].activo == true)
                 {
                     rect = new Rectangle(ListaObjetos2[n].x - 4, ListaObjetos2[n].y - 4, 20, 20);
-                    e.Graphics.DrawImage(coin, rect);
+                    e.Graphics.DrawImage(mush, rect);
                 }
 
-            // Dibujamos la bateria
-            rect = new Rectangle(MiBateria.x - 4, MiBateria.y - 4, 30, 30);
+            // Dibujamos la estrella
+            rect = new Rectangle(Estrella.x - 4, Estrella.y - 4, 30, 30);
             e.Graphics.DrawImage(star, rect);
 
-            // Indicamos el estado en que se encuentra la maquina
-            e.Graphics.DrawString("LUIGI -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
-            e.Graphics.DrawString("MARIO -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
+            // Indicamos el estado en que se encuentran las maquinas
+            e.Graphics.DrawString("MARIO -> " + Mario.EstadoM.ToString(), fuente, brocha, 10, 40);
+            e.Graphics.DrawString("LUIGI -> " + Luigi.EstadoM.ToString(), fuente, brocha, 10, 10);
 
-            if(maquina.EstadoM == 4)
+            if (Mario.EstadoM == 4)
+            {
+                timer1.Enabled = false;
+                e.Graphics.DrawString("GANÓ MARIO", fuente2, brocha, 250, 200);
+            }
+            if (Luigi.EstadoM == 4)
             {
                 timer1.Enabled = false;
                 e.Graphics.DrawString("GANÓ LUIGI" , fuente2, brocha, 250, 200);
-            }
-            if (maquina2.EstadoM == 4)
-            {
-                timer1.Enabled = false;
-                e.Graphics.DrawString("GANÓ MARIO" , fuente2, brocha, 250, 200);
             }
 
         }

@@ -3,7 +3,7 @@ using System;
 
 namespace MEF
 {
-	// Estructura usada para los objetos y la bateria
+	// Estructura usada para los objetos y la estrella
 	public struct S_objeto
 	{
 		public bool activo;	// Indica si el objeto es visible o no
@@ -18,24 +18,23 @@ namespace MEF
 		// Enumeracion de los diferentes estados
 		public enum  estados
 		{
-			ALEATORIO,
+			X,
 			BUSQUEDA,
 			NBUSQUEDA,
-			IRBATERIA,
-			MUERTO,
-			RECARGAR,
+			ESTRELLA,
+			GANADOR,
 			
 		};
 
 		// Esta variable representa el estado actual de la maquina
 		private int Estado;
 
-		// Estas variables son las coordenadas del robot
+		// Estas variables son las coordenadas del personaje
 		private int x,y;
 
 		// Arreglo para guardar una copia de los objetos
 		private S_objeto[] objetos = new S_objeto[10];
-		private S_objeto bateria;
+		private S_objeto estrella;
 
 		// Variable del indice del objeto que buscamos
 		private int indice;
@@ -68,14 +67,14 @@ namespace MEF
 			indice=-1;	// Empezamos como si no hubiera objeto a buscar
 		}
 
-		public void Inicializa(ref S_objeto [] Pobjetos, S_objeto Pbateria)
+		public void Inicializa(ref S_objeto [] Pobjetos, S_objeto Pestrella)
 
 		{
-			// Colocamos una copia de los objetos y la bateria
+			// Colocamos una copia de los objetos y la estrella
 			// para pode trabajar internamente con la informacion
 
 			objetos=Pobjetos;
-			bateria=Pbateria;
+            estrella = Pestrella;
 
 		}
 
@@ -85,7 +84,7 @@ namespace MEF
 			
 			switch(Estado)
 			{
-				case (int)estados.BUSQUEDA:
+			    case (int)estados.BUSQUEDA:
 					// Llevamos a cabo la accion del estado
 					Busqueda();
 
@@ -100,47 +99,29 @@ namespace MEF
 
 					}
 
-					break;
+				break;
 
 				case (int)estados.NBUSQUEDA:
 					// Llevamos a cabo la accion del estado
 					NuevaBusqueda();
 
 					// Verificamos por transicion
-					if(indice==-1)	// Si ya no hay objetos, entonces aleatorio
-                        Estado=(int)estados.IRBATERIA;
-                        //Estado=(int)estados.ALEATORIO;
+					if(indice==-1)
+                        Estado=(int)estados.ESTRELLA;
                     else
                         Estado =(int)estados.BUSQUEDA;
 
-					break;
+				break;
 					
-				case (int)estados.IRBATERIA:
+				case (int)estados.ESTRELLA:
 					// Llevamos a cabo la accion del estado
-					IrBateria();
+					IrEstrella();
 
 					// Verificamos por transicion
-					if(x==bateria.x && y==bateria.y)				
-						Estado=(int)estados.MUERTO;
+					if(x==estrella.x && y==estrella.y)				
+						Estado=(int)estados.GANADOR;
 
-					break;
-
-				case (int)estados.RECARGAR:
-
-					// Hacemos la transicion
-					Estado=(int)estados.BUSQUEDA;
-
-					break;
-
-				case (int)estados.MUERTO:
-					
-					break;
-
-				case (int)estados.ALEATORIO:
-					// Llevamos a cabo la accion del estado
-					Aleatorio();
-
-					break;
+				break;
 
 			}
 
@@ -197,49 +178,32 @@ namespace MEF
             }
         }
 
-		public void Aleatorio()
+		public void IrEstrella()
 		{
-			// En esta funcion colocamos la logica del estado Aleatorio
-			// Se mueve al azar
+            // En esta funcion colocamos la logica del estado Estrella
 
-			// Cremos un objeto para tener valores aleatorios
-			Random random=new Random();
-
-			int nx=random.Next(0,3);
-			int ny=random.Next(0,3);
-
-			// Modificamos la posicion al azar
-			x+=nx-1;
-			y+=ny-1;
-
-		}
-
-		public void IrBateria()
-		{
-            // En esta funcion colocamos la logica del estado Ir Bateria
-
-            // Nos dirigimos hacia la bateria
-            if (x < bateria.x && bateria.x - x > 1)
+            // Nos dirigimos hacia la estrella
+            if (x < estrella.x && estrella.x - x > 1)
                 x += 2;
-            else if (x < bateria.x && bateria.x - x == 1)
+            else if (x < estrella.x && estrella.x - x == 1)
                 x++;
-            else if (x > bateria.x && x - bateria.x > 1)
+            else if (x > estrella.x && x - estrella.x > 1)
                 x -= 2;
-            else if (x > bateria.x && x - bateria.x == 1)
+            else if (x > estrella.x && x - estrella.x == 1)
                 x++;
 
 
-            if (y < bateria.y && bateria.y - y > 1)
+            if (y < estrella.y && estrella.y - y > 1)
                 y += 2;
-            else if (y < bateria.y && bateria.y - y == 1)
+            else if (y < estrella.y && estrella.y - y == 1)
                 y++;
-            else if (y > bateria.y && y - bateria.y > 1)
+            else if (y > estrella.y && y - estrella.y > 1)
                 y -=2 ;
-            else if (y > bateria.y && y - bateria.y == 1)
+            else if (y > estrella.y && y - estrella.y == 1)
                 y--;
 
 		}
-
-
+        
 	}
+
 }
