@@ -40,3 +40,12 @@ C:\Users\david\Desktop\Arquitectura del Computador (Teoría)\Proyecto\Proy_Arqui
 C:\Users\david\Desktop\Arquitectura del Computador (Teoría)\Proyecto\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Form1.resources
 C:\Users\david\Desktop\Arquitectura del Computador (Teoría)\Proyecto\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.Properties.Resources.resources
 C:\Users\david\Desktop\Arquitectura del Computador (Teoría)\Proyecto\Proy_Arquitectura_Computador\MEF\obj\Debug\MEF.csproj.GenerateResource.Cache
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\bin\Debug\MEF.exe.config
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\obj\Debug\MEF.exe
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\obj\Debug\MEF.pdb
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\bin\Debug\MEF.exe
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\bin\Debug\MEF.pdb
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\obj\Debug\MEF.csprojResolveAssemblyReference.cache
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\obj\Debug\MEF.Form1.resources
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\obj\Debug\MEF.Properties.Resources.resources
+C:\Users\alans\OneDrive\Documentos\University\6to semestre\Arquitectura del Computador\Proyecto_Arquitectura_Perez_Sosa_Zacarias\Codigo\MEF\obj\Debug\MEF.csproj.GenerateResource.Cache

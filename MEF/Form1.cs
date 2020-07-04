@@ -230,7 +230,7 @@ namespace MEF
             Image coin = Image.FromFile("coin.png");
             Image mush = Image.FromFile("mushroom.png");
             Image luigi = Image.FromFile("luigi.png");
-            Image mario = Image.FromFile("mario2.png");
+            Image mario = Image.FromFile("mario.png");
             Image star = Image.FromFile("estrella.gif");
 
 
