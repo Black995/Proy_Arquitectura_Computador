@@ -148,20 +148,30 @@ namespace MEF
 
 		public void Busqueda()
 		{
-			// En esta funcion colocamos la logica del estado Busqueda
-			
-			// Nos dirigimos hacia el objeto actual
-			if(x<objetos[indice].x)
-				x++;
-			else if(x>objetos[indice].x)
-				x--;
+            // En esta funcion colocamos la logica del estado Busqueda
 
-			if(y<objetos[indice].y)
-				y++;
-			else if(y>objetos[indice].y)
-				y--;
+            // Nos dirigimos hacia el objeto actual
+            if (x < objetos[indice].x && objetos[indice].x - x > 1)
+                x += 2;
+            else if (x < objetos[indice].x && objetos[indice].x - x == 1)
+                x++;
+            else if (x > objetos[indice].x && x - objetos[indice].x > 1)
+                x -= 2;
+            else if (x > objetos[indice].x && x - objetos[indice].x == 1)
+                x++;
 
-		}
+
+            if (y < objetos[indice].y && objetos[indice].y - y > 1)
+                y += 2;
+            else if (y < objetos[indice].y && objetos[indice].y - y == 1)
+                y++;
+            else if (y > objetos[indice].y && y - objetos[indice].y > 1)
+                y -=2 ;
+            else if (y > objetos[indice].y && y - objetos[indice].y == 1)
+                y--;
+
+
+        }
 
 		public void NuevaBusqueda()
 		{
@@ -206,18 +216,27 @@ namespace MEF
 
 		public void IrBateria()
 		{
-			// En esta funcion colocamos la logica del estado Ir Bateria
+            // En esta funcion colocamos la logica del estado Ir Bateria
 
-			// Nos dirigimos hacia la bateria
-			if(x<bateria.x)
-				x++;
-			else if(x>bateria.x)
-				x--;
+            // Nos dirigimos hacia la bateria
+            if (x < bateria.x && bateria.x - x > 1)
+                x += 2;
+            else if (x < bateria.x && bateria.x - x == 1)
+                x++;
+            else if (x > bateria.x && x - bateria.x > 1)
+                x -= 2;
+            else if (x > bateria.x && x - bateria.x == 1)
+                x++;
 
-			if(y<bateria.y)
-				y++;
-			else if(y>bateria.y)
-				y--;
+
+            if (y < bateria.y && bateria.y - y > 1)
+                y += 2;
+            else if (y < bateria.y && bateria.y - y == 1)
+                y++;
+            else if (y > bateria.y && y - bateria.y > 1)
+                y -=2 ;
+            else if (y > bateria.y && y - bateria.y == 1)
+                y--;
 
 		}
 

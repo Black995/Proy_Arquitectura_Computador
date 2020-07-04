@@ -16,9 +16,10 @@ namespace MEF
         private MenuItem menuItem3;
         private MenuItem mnuInicio;
         private MenuItem mnuParo;
+        private MenuItem mnuReset;
         private Timer timer1;
         private IContainer components;
-        
+
 
         // Creamos un objeto para la maquina de estados finitos
         private CMaquina maquina = new CMaquina();
@@ -98,6 +99,7 @@ namespace MEF
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.mnuInicio = new System.Windows.Forms.MenuItem();
             this.mnuParo = new System.Windows.Forms.MenuItem();
+            this.mnuReset = new System.Windows.Forms.MenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -125,7 +127,8 @@ namespace MEF
             this.menuItem3.Index = 1;
             this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.mnuInicio,
-            this.mnuParo});
+            this.mnuParo,
+            this.mnuReset});
             this.menuItem3.Text = "Aplicacion";
             // 
             // mnuInicio
@@ -137,8 +140,14 @@ namespace MEF
             // mnuParo
             // 
             this.mnuParo.Index = 1;
-            this.mnuParo.Text = "Paro";
+            this.mnuParo.Text = "Pausa";
             this.mnuParo.Click += new System.EventHandler(this.mnuParo_Click);
+            // 
+            // mnuReset
+            // 
+            this.mnuReset.Index = 2;
+            this.mnuReset.Text = "Reiniciar";
+            this.mnuReset.Click += new System.EventHandler(this.mnuReset_Click);
             // 
             // timer1
             // 
@@ -155,7 +164,7 @@ namespace MEF
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
-            this.Text = "Marico el que lo lea";
+            this.Text = "Mario vs Luigi";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.ResumeLayout(false);
@@ -168,7 +177,7 @@ namespace MEF
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             Application.Run(new Form1());
         }
 
@@ -186,6 +195,11 @@ namespace MEF
         private void mnuParo_Click(object sender, System.EventArgs e)
         {
             timer1.Enabled = false;
+        }
+
+        private void mnuReset_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
         private void timer1_Tick(object sender, System.EventArgs e)
@@ -215,14 +229,14 @@ namespace MEF
             Rectangle rect;
             Image coin = Image.FromFile("coin.png");
             Image mush = Image.FromFile("mushroom.png");
-            Image yoshi = Image.FromFile("yoshi.png");
-            Image mario = Image.FromFile("mario.png");
+            Image luigi = Image.FromFile("luigi.png");
+            Image mario = Image.FromFile("mario2.png");
             Image star = Image.FromFile("estrella.gif");
 
 
-                //Yoshi
+                //Luigi
                  rect = new Rectangle(maquina.CoordX - 4, maquina.CoordY - 4, 40, 40);
-                 e.Graphics.DrawImage(yoshi, rect);
+                 e.Graphics.DrawImage(luigi, rect);
                 //Mario
                 rect = new Rectangle(maquina2.CoordX - 4, maquina2.CoordY - 4, 40, 40);
                 e.Graphics.DrawImage(mario, rect);
@@ -247,13 +261,13 @@ namespace MEF
             e.Graphics.DrawImage(star, rect);
 
             // Indicamos el estado en que se encuentra la maquina
-            e.Graphics.DrawString("YOSHI -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
+            e.Graphics.DrawString("LUIGI -> " + maquina.EstadoM.ToString(), fuente, brocha, 10, 10);
             e.Graphics.DrawString("MARIO -> " + maquina2.EstadoM.ToString(), fuente, brocha, 10, 40);
 
             if(maquina.EstadoM == 4)
             {
                 timer1.Enabled = false;
-                e.Graphics.DrawString("GANÓ YOSHI" , fuente2, brocha, 250, 200);
+                e.Graphics.DrawString("GANÓ LUIGI" , fuente2, brocha, 250, 200);
             }
             if (maquina2.EstadoM == 4)
             {
